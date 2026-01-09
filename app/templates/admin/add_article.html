@@ -5,6 +5,12 @@
     <title>Admin - Ajout Article</title>
 </head>
 <body>
-form d'ajout d'un article
+    <div>
+        <form action="{{ url_for('admin.save_article') }}" method="post">
+            <input type="text" name="title" id="title" placeholder="Titre de l'article">
+            <textarea name="content" id="content" cols="30" rows="10" placeholder="contenu de l'article"></textarea>
+            <button type="submit">Publier</button>
+        </form>
+    </div>
 </body>
 </html>
