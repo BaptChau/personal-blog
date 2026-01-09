@@ -5,6 +5,14 @@
     <title>Admin - edition</title>
 </head>
 <body>
-formulaire d'édition de l'article {{article_id}}
+formulaire d'édition de l'article {{article.id}}
+<br>
+    <div>
+        <form action="{{ url_for('admin.update_article', article_id=article.id) }}" method="post">
+            <input type="text" name="title" id="title" placeholder="Titre de l'article" value="{{article.title}}">
+            <textarea name="content" id="content" cols="30" rows="10" placeholder="contenu de l'article">{{article.content}}</textarea>
+            <button type="submit">Update</button>
+        </form>
+    </div>
 </body>
 </html>

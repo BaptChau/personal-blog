@@ -18,7 +18,7 @@ class Article:
             "id": self.id,
             "title": self.title,
             "content": self.content,
-            "publishing_date": self.publishing_date.isoformat()
+            "publishing_date": self.publishing_date.isoformat(),
         }
 
     @classmethod
@@ -32,3 +32,12 @@ class Article:
 
         cls._next_id += 1
         return article
+
+    @classmethod
+    def from_json(cls, json: dict):
+        return Article(
+            id=json["id"],
+            title=json["title"],
+            content=json["content"],
+            publishing_date=date.fromisoformat(json["publishing_date"])
+        )

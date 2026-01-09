@@ -5,6 +5,16 @@
     <title>ADmin - dashboard</title>
 </head>
 <body>
-dashboard admin
+liste des articles : <a href="{{url_for('admin.add_article')}}">+add</a><br>
+    <table>
+      {% for article in articles %}
+        <tr>
+          <td>{{ article.title }}</td>
+          <td>{{ article.published_at }}</td>
+            <td><a href="{{url_for('admin.edit_article', article_id=article.id)}}">edit</a></td>
+            <td><a href="{{url_for('admin.delete_article', article_id=article.id)}}">delete</a></td>
+        </tr>
+      {% endfor %}
+    </table>
 </body>
 </html>
