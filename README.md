@@ -1,4 +1,6 @@
 # personal-blog
+## NOT USABLE IN PRODUCTION
+for learning purpose only
 roadmap.sh project
 Link to base project instruction : https://roadmap.sh/projects/personal-blog
 Guest Section — A list of pages that can be accessed by anyone:
