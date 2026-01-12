@@ -1,7 +1,19 @@
-from flask import Blueprint, render_template, request, redirect
+from flask import Blueprint, render_template, request, redirect, Response
 from app.models.article import Article
 import app.admin.helper as helper
+import hmac
+
 admin_bp = Blueprint("admin", __name__)
+
+@admin_bp.before_request
+def require_basic_auth():
+    auth = request.authorization
+    expected_username = "admin"
+    expected_password = "admin"
+    if not auth or not (hmac.compare_digest(auth.username, expected_username) and hmac.compare_digest(auth.password, expected_password)):
+        return Response(status=401, headers={"WWW-Authenticate": "Basic"})
+    return None
+
 
 @admin_bp.route("/")
 def home():

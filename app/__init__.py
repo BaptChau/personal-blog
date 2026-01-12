@@ -8,4 +8,6 @@ def create_app():
 
     app.register_blueprint(public_bp)
     app.register_blueprint(admin_bp, url_prefix="/admin")
+    app.config["ADMIN_USER"] = 'admin'
+    app.config["ADMIN_PASS"] = 'admin'
     return app
