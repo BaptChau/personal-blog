@@ -5,6 +5,13 @@
     <title>HomePage</title>
 </head>
 <body>
-je suis la homepage
+{% for article in articles %}
+    <tr>
+        <a href="{{ url_for('public.article',article_id=article.id)}}">
+            <td>{{ article.title }}</td>
+            <td>{{ article.published_at }}</td>
+        </a>
+    </tr>
+  {% endfor %}
 </body>
 </html>
