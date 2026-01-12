@@ -22,7 +22,7 @@ class Article:
         }
 
     @classmethod
-    def from_request(cls, request: Request) -> Article:
+    def from_request(cls, request: Request):
         article = Article(
             id= cls._next_id,
             title=request.form.get("title", "").strip(),
